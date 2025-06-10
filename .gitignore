@@ -1,0 +1,15 @@
+# Node modules
+node_modules/
+
+# Generated vendor libraries
+vendor/
+
+# Minified JavaScript files
+js/*.min.js
+js/*.min.js.map
+
+# jQuery distribution
+jquery/
+
+# OS metadata
+.DS_Store

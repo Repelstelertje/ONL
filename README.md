@@ -15,6 +15,7 @@ This repository contains the source code for the Oproepjes Nederland website.
    ```bash
    npm install
    ```
+Running this command installs front-end packages so you can rebuild the `vendor` directory and minified scripts.
 
 2. Start the asset watcher and development server:
 
