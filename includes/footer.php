@@ -29,13 +29,11 @@
 </script>
 
 <?php 
-	if(isset ($type) && $type == "profile"){
-
-		echo '<script src="https://oproepjesnederland.nl/js/profile.js?01"></script>';
-	} else {
-
-		echo '<script src="https://oproepjesnederland.nl/js/oproepjes.js?04"></script>';
-	}
+        if (isset($type) && $type == "profile") {
+                echo '<script src="js/profile.js?01"></script>';
+        } else {
+                echo '<script src="js/oproepjes.js?04"></script>';
+        }
 ?>
 
 </body>
