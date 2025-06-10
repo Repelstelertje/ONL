@@ -25,13 +25,13 @@ $nonce = base64_encode(random_bytes(16));
     <meta name="author" content="Oproepjes Nederland">
     <link rel="apple-touch-icon" sizes="57x57" href="img/fav/apple-icon-57x57.png">
 <meta http-equiv="Content-Security-Policy" content="
-        default-src 'self';
+        default-src 'self' https://16hl07csd16.nl https://oproepjesnederland.nl;
         font-src 'self' https://fonts.gstatic.com;
-        img-src 'self' https://16hl07csd16.nl https://region1.google-analytics.com www.googletagmanager.com https://ssl.gstatic.com https://www.gstatic.com https://www.google-analytics.com https://20fhbe2020.be;
-        style-src 'self' https://tagmanager.google.com https://fonts.googleapis.com 'unsafe-inline';
+        img-src 'self' https://16hl07csd16.nl https://oproepjesnederland.nl https://region1.google-analytics.com www.googletagmanager.com https://ssl.gstatic.com https://www.gstatic.com https://www.google-analytics.com https://20fhbe2020.be;
+        style-src 'self' https://16hl07csd16.nl https://oproepjesnederland.nl https://tagmanager.google.com https://fonts.googleapis.com 'unsafe-inline';
         style-src-elem 'self' https://tagmanager.google.com https://fonts.googleapis.com 'unsafe-inline';
-        connect-src 'self' https://region1.google-analytics.com https://tagmanager.google.com https://www.google-analytics.com https://16hl07csd16.nl https://20fhbe2020.be;
-        script-src 'self' https://16hl07csd16.nl https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https://ajax.googleapis.com https://maxcdn.bootstrapcdn.com https://unpkg.com 'nonce-<?php echo $nonce; ?>' 'sha256-WwSlXI54tpz3oRisOne8KKEqXFjbTYCI2AzKef7+7nE='
+        connect-src 'self' https://region1.google-analytics.com https://tagmanager.google.com https://www.google-analytics.com https://16hl07csd16.nl https://oproepjesnederland.nl https://20fhbe2020.be;
+        script-src 'self' https://16hl07csd16.nl https://oproepjesnederland.nl https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https://ajax.googleapis.com https://maxcdn.bootstrapcdn.com https://unpkg.com 'nonce-<?php echo $nonce; ?>' 'sha256-WwSlXI54tpz3oRisOne8KKEqXFjbTYCI2AzKef7+7nE='
     " >
     <link rel="apple-touch-icon" sizes="60x60" href="img/fav/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="img/fav/apple-icon-72x72.png">
