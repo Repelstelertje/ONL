@@ -30,14 +30,14 @@ function loadAnalytics() {
 
 function loadMarketing() {
   const script = document.createElement('script');
-  script.src = 'https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXX';
+  script.src = 'https://www.googletagmanager.com/gtag/js?id=AW-7880643696';
   script.async = true;
   document.head.appendChild(script);
 
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'AW-XXXXXXX');
+  gtag('config', 'AW-7880643696');
 
   // Facebook Pixel (placeholder)
   // Insert your pixel script here if needed
