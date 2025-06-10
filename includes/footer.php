@@ -28,7 +28,7 @@
 
 <?php 
         if (isset($type) && $type == "profile") {
-                echo '<script src="js/profile.js?01"></script>';
+                echo '<script src="js/profile.js?02"></script>';
         } else {
                 echo '<script src="js/oproepjes.js?04"></script>';
         }
