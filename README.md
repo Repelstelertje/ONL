@@ -34,3 +34,7 @@ Running this command installs front-end packages so you can rebuild the `vendor`
 
    Browse to `http://localhost:8000` (or the port you configured) while `gulp watch` is running.
 
+4. Cookie consent banner:
+
+   A small script (`js/cookie-consent.js`) shows a banner asking users to accept or decline cookies. When accepted, the script stores the choice in `localStorage` and loads Google Analytics. If no choice has been made, the banner is displayed on page load.
+

@@ -32,7 +32,20 @@
         } else {
                 echo '<script src="js/oproepjes.js?04"></script>';
         }
+        echo '<script src="js/cookie-consent.js"></script>';
 ?>
+
+<div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; right: 0; background: #fff; border-top: 1px solid #ccc; padding: 15px; font-family: Arial, sans-serif; display: none; z-index: 9999;">
+  <div style="max-width: 960px; margin: auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;">
+    <div style="flex: 1; min-width: 200px; font-size: 14px; color: #333;">
+      We use cookies to enhance your experience. Read our <a href="/cookie-policy.html" target="_blank">Cookie Policy</a>.
+    </div>
+    <div style="flex-shrink: 0; margin-left: 10px;">
+      <button onclick="acceptCookies()" style="background-color: #007BFF; color: white; padding: 8px 12px; border: none; cursor: pointer; margin-right: 5px;">Accept</button>
+      <button onclick="declineCookies()" style="background-color: #ccc; color: #333; padding: 8px 12px; border: none; cursor: pointer;">Decline</button>
+    </div>
+  </div>
+</div>
 
 </body>
 
