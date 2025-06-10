@@ -1,16 +1,22 @@
 <?php 
   include('includes/array_prov.php');
-  include('includes/header.php');
-
   function strip_bad_chars( $input ) {
     $output = preg_replace( "/[^a-zA-Z0-9_-]/", "",$input);
     return $output;
   }
-  
+
+  $zoek = null;
   if(isset($_GET['item'])) {
     $provincie = strip_bad_chars( $_GET['item'] );
-    $zoek = $provincies[$provincie];
+    if (isset($provincies[$provincie])) {
+      $zoek = $provincies[$provincie];
+    }
   }
+  if (!$zoek) {
+    include('404.php');
+    exit;
+  }
+  include('includes/header.php');
 ?>
   
   <div class="container">
@@ -41,7 +47,7 @@
       </div>
     </div><!-- /.row -->
 
-    <script nonce="2726c7f26c">
+    <script nonce="<?php echo $nonce; ?>">
      var api_url= "https://16hl07csd16.nl/profile/province/nl/<?=$zoek['name']?>/120";
     </script>
 

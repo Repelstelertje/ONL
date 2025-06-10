@@ -1,19 +1,27 @@
 <?php 
 	define("TITLE", "Datingtips | Oproepjes Nederland");
 
-  	include('includes/array_tips.php');
-  	include('includes/array_prov.php');
-	include('includes/header.php');
+        include('includes/array_tips.php');
+        include('includes/array_prov.php');
 
 	function strip_bad_chars( $input ) {
 		$output = preg_replace( "/[^a-zA-Z0-9_-]/", "",$input);
 		return $output;
 	}
 	
-	if(isset($_GET['tip'])) {
-		$datingtip = strip_bad_chars( $_GET['tip'] );
-		$tips = $datingtips[$datingtip];
-	}
+$tipData = null;
+if(isset($_GET['tip'])) {
+        $datingtip = strip_bad_chars($_GET['tip']);
+        if (isset($datingtips[$datingtip])) {
+                $tipData = $datingtips[$datingtip];
+        }
+}
+if (!$tipData) {
+        include('404.php');
+        exit;
+}
+$tips = $tipData;
+include('includes/header.php');
 ?>
 
 <div class="container">
