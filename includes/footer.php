@@ -10,7 +10,8 @@
         <li><a href="https://e-notifyer.nl/" target="_blank" class="m-0">E-notifyer</a> - </li>
 		<li><a href="partnerlinks" class="m-0">Meer partnerlinks...</a></li>
 	</ul>
-  	<span class="sub-text">Copyright &copy; <?php echo date('Y'); ?> <?php echo $companyName; ?> | De gratis datingsite van Nederland </span>
+       <span class="sub-text">Copyright &copy; <?php echo date('Y'); ?> <?php echo $companyName; ?> | De gratis datingsite van Nederland </span>
+       <span class="policy-links"><a href="/privacy.php">Privacybeleid</a> | <a href="/cookie-policy.php">Cookiebeleid</a></span>
 </footer>
 <script src="js/vendor/vue.2.5.13.min.js"></script>
 <script src="js/vendor/axios.0.17.1.min.js"></script>
