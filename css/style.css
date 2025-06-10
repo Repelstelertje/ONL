@@ -211,6 +211,13 @@ footer {
     font-size: 1rem;
     font-weight: 400;
 }
+.policy-links {
+    display: block;
+    margin-top: 5px;
+}
+.policy-links a {
+    color: #ffffff;
+}
 /* Social */
 .addthis_inline_follow_toolbox {
     margin-top: -10px;
