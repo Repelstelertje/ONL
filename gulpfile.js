@@ -23,22 +23,25 @@ function browserSyncReload(done) {
   done();
 }
 
-// Clean vendor
+// Clean vendor files
 function clean() {
-  return del(["./vendor/"]);
+  return del(["./js/vendor/"]);
 }
 
 // Bring third party dependencies from node_modules into vendor directory
 function modules() {
   // Bootstrap
-  var bootstrap = gulp.src('./node_modules/bootstrap/dist/**/*')
-    .pipe(gulp.dest('./vendor/bootstrap'));
+  var bootstrap = gulp.src([
+      './node_modules/bootstrap/dist/js/bootstrap.bundle.min.js',
+      './node_modules/bootstrap/dist/js/bootstrap.min.js'
+    ])
+    .pipe(gulp.dest('./js/vendor'));
   // jQuery
   var jquery = gulp.src([
-      './node_modules/jquery/dist/*',
-      '!./node_modules/jquery/dist/core.js'
+      './node_modules/jquery/dist/jquery.min.js',
+      './node_modules/jquery/dist/jquery.slim.min.js'
     ])
-    .pipe(gulp.dest('./vendor/jquery'));
+    .pipe(gulp.dest('./js/vendor'));
   return merge(bootstrap, jquery);
 }
 

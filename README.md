@@ -15,7 +15,7 @@ This repository contains the source code for the Oproepjes Nederland website.
    ```bash
    npm install
    ```
-Running this command installs front-end packages so you can rebuild the `vendor` directory and minified scripts.
+Running this command installs front-end packages so you can rebuild the `js/vendor` directory and minified scripts.
 
 2. Start the asset watcher and development server:
 
@@ -23,7 +23,7 @@ Running this command installs front-end packages so you can rebuild the `vendor`
    npm start        # runs `gulp watch`
    ```
 
-   This command watches files, builds the `vendor` folder and launches BrowserSync on port 3000.
+This command watches files, builds the `js/vendor` folder and launches BrowserSync on port 3000.
 
 3. Configure your web server to serve this directory as the document root.
    For a quick setup you can use PHP’s built‑in server:
