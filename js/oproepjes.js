@@ -30,6 +30,9 @@ var oproepjes= new Vue({
                     console.log(error);
                 });            
         },
+        imgError: function(event){
+            event.target.src = 'img/fallback.svg';
+        },
         set_page_number: function(page){
             if(page <= 1){
                 this.page= 1;

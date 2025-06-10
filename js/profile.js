@@ -31,6 +31,9 @@ var profiel= new Vue({
     computed: {
     },
     methods:  {
+        imgError: function(event){
+            event.target.src = 'img/fallback.svg';
+        },
         init: function(){
             if(this.profile_id <= 0){
                 return;
