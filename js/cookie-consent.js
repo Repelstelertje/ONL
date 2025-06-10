@@ -18,14 +18,14 @@ function getCookieConsent() {
 
 function loadAnalytics() {
   const script = document.createElement('script');
-  script.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX';
+  script.src = 'https://www.googletagmanager.com/gtag/js?id=G-5M538168N4';
   script.async = true;
   document.head.appendChild(script);
 
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-XXXXXXX');
+  gtag('config', 'G-5M538168N4');
 }
 
 function loadMarketing() {
