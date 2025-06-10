@@ -179,8 +179,8 @@ $nonce = base64_encode(random_bytes(16));
     <meta name="twitter:url" content="<?php echo $og_url; ?>">
 
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5M538168N4" nonce="<?php echo $nonce; ?>" SameSite=None; Secure></script>
-    <script nonce="<?php echo $nonce; ?>" SameSite=None; Secure>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5M538168N4" nonce="<?php echo $nonce; ?>"></script>
+    <script nonce="<?php echo $nonce; ?>">
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
