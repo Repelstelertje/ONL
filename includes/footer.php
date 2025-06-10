@@ -12,15 +12,14 @@
 	</ul>
   	<span class="sub-text">Copyright &copy; <?php echo date('Y'); ?> <?php echo $companyName; ?> | De gratis datingsite van Nederland </span>
 </footer>
+<script src="js/vendor/vue.2.5.13.min.js"></script>
+<script src="js/vendor/axios.0.17.1.min.js"></script>
 
-<script src="https://unpkg.com/vue@2.5.13/dist/vue.min.js"></script>
-<script src="https://unpkg.com/axios@0.17.1/dist/axios.min.js"></script>
+<script src="js/vendor/jquery.min.js"></script>
+<script src="js/vendor/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/vue-router@3.5.3"></script>
 
-<script src="jquery/jquery.min.js"></script>
-<script src="js/bootstrap.bundle.min.js"></script>
-<script src="https://unpkg.com/vue-router@3.5.3/dist/vue-router.min.js"></script>
-
-<script type="text/javascript" nonce="<?php echo $nonce; ?>" SameSite=None; Secure>
+<script type="text/javascript" nonce="<?php echo $nonce; ?>">
 	////Random IMG
 	var topper = ['1.gif', '2.gif', '3.gif', '4.gif', '5.gif', '6.gif', '7.gif', '8.gif', '9.gif', '10.gif'];
 	$('<a href="https://testars-consin.icu/543064f4-6080-4845-8f43-30f049426cdf?site={ONL}"><img class="align-center" src="img/banners/' + topper[Math.floor(Math.random() * topper.length)] + '" alt="Spannende plekken om contact te maken"></a>').appendTo('#top-banner');

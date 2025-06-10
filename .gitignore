@@ -3,6 +3,8 @@ node_modules/
 
 # Generated vendor libraries
 vendor/
+!js/vendor/
+!js/vendor/**
 
 # Minified JavaScript files
 js/*.min.js
