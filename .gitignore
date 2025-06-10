@@ -15,3 +15,8 @@ jquery/
 
 # OS metadata
 .DS_Store
+
+# Site verification files
+ahrefs_*
+yandex_*.html
+w3dir*.html
