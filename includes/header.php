@@ -2,9 +2,12 @@
   $companyName = "Oproepjes Nederland";
   include('includes/nav_items.php');
 
-  ini_set('display_errors', 1);
-  ini_set('display_startup_errors', 1);
-  error_reporting(E_ALL);
+  // Enable verbose error output only when running in development
+  if (getenv('ONL_ENV') === 'development') {
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+  }
 
   if (empty($page_title)) {
     $page_title = 'Contact Advertenties';
