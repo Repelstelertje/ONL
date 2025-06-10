@@ -11,7 +11,7 @@ function setCookieConsent(statistics, marketing) {
 function getCookieConsent() {
   try {
     return JSON.parse(localStorage.getItem('cookieConsent'));
-  } catch {
+  } catch (err) {
     return null;
   }
 }
