@@ -46,6 +46,7 @@ function modules() {
 function watchFiles() {
   gulp.watch("./**/*.css", browserSyncReload);
   gulp.watch("./**/*.html", browserSyncReload);
+  gulp.watch("./**/*.js", browserSyncReload);
 }
 
 // Define complex tasks
