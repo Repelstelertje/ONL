@@ -31,7 +31,7 @@ $nonce = base64_encode(random_bytes(16));
         style-src 'self' https://16hl07csd16.nl https://oproepjesnederland.nl https://tagmanager.google.com https://fonts.googleapis.com 'unsafe-inline';
         style-src-elem 'self' https://tagmanager.google.com https://fonts.googleapis.com 'unsafe-inline';
         connect-src 'self' https://region1.google-analytics.com https://tagmanager.google.com https://www.google-analytics.com https://16hl07csd16.nl https://oproepjesnederland.nl https://20fhbe2020.be;
-        script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com 'nonce-<?php echo $nonce; ?>' 'sha256-WwSlXI54tpz3oRisOne8KKEqXFjbTYCI2AzKef7+7nE='
+        script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https://unpkg.com/ 'nonce-<?php echo $nonce; ?>' 'sha256-WwSlXI54tpz3oRisOne8KKEqXFjbTYCI2AzKef7+7nE='
     " >
     <link rel="apple-touch-icon" sizes="60x60" href="img/fav/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="img/fav/apple-icon-72x72.png">
