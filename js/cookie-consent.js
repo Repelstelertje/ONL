@@ -65,6 +65,11 @@ function bindCookieForm() {
     if (statistics) loadAnalytics();
     if (marketing) loadMarketing();
   });
+
+  const acceptAllBtn = document.getElementById('cookie-accept-all');
+  if (acceptAllBtn) {
+    acceptAllBtn.addEventListener('click', acceptAllCookies);
+  }
 }
 
 function acceptAllCookies() {
