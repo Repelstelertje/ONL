@@ -61,8 +61,25 @@ $nonce = base64_encode(random_bytes(16));
             $title = "Dating " . $item;
         } else if (isset($_GET['id']) && !empty($_GET['id'])) {
             $id = htmlspecialchars($_GET['id']);
-            $canonicalUrl = $baseUrl . "/profile?id=" . $id;
-            $title = "Daten met " . $id;
+            $profileName = $id;
+            $apiData = @file_get_contents("https://16hl07csd16.nl/profile/get0/8/" . $id);
+            if ($apiData !== false) {
+                $profile = json_decode($apiData, true);
+                if (isset($profile['name'])) {
+                    $profileName = $profile['name'];
+                    $slug = strtolower($profileName);
+                    $slug = preg_replace('/[^a-z0-9]+/', '-', $slug);
+                    $slug = trim($slug, '-');
+                    $canonicalUrl = $baseUrl . '/daten-met-' . $slug;
+                    $title = 'Daten met ' . $profileName;
+                } else {
+                    $canonicalUrl = $baseUrl . "/profile?id=" . $id;
+                    $title = "Daten met " . $profileName;
+                }
+            } else {
+                $canonicalUrl = $baseUrl . "/profile?id=" . $id;
+                $title = "Daten met " . $profileName;
+            }
         } else if (isset($_GET['tip']) && !empty($_GET['tip'])) {
             $tip = htmlspecialchars($_GET['tip']);
             $canonicalUrl = $baseUrl . "/datingtips-" . $tip;
