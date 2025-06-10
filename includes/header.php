@@ -1,6 +1,7 @@
 <?php
   $companyName = "Oproepjes Nederland";
   include('includes/nav_items.php');
+  include('includes/config.php');
 
   // Enable verbose error output only when running in development
   if (getenv('ONL_ENV') === 'development') {
@@ -49,7 +50,6 @@
 
     <?php
         // Canonical URL logic
-        $baseUrl = "https://oproepjesnederland.nl";
         $canonicalUrl = $baseUrl; // Default canonical URL
         $title = "Dating Advertenties Nederland"; // Default title
 
@@ -75,8 +75,8 @@
         // Stel standaardwaarden in
         $default_title = "Oproepjes Nederland - Dé plek voor oproepjes in Nederland";
         $default_description = "Vind en plaats oproepjes in heel Nederland. Eenvoudig platform om jouw oproepje snel en gemakkelijk te delen.";
-        $default_image = "https://oproepjesnederland.nl/img/bg.jpg";
-        $default_url = "https://oproepjesnederland.nl";
+        $default_image = $baseUrl . "/img/bg.jpg";
+        $default_url = $baseUrl;
 
         // Dynamisch genereren van inhoud gebaseerd op de pagina-URL
         $current_url = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
@@ -92,62 +92,62 @@
             'dating-drenthe' => [
                 'title' => 'Dating in Drenthe - Vind je date op Oproepjes Nederland',
                 'description' => 'Op zoek naar een date in Drenthe? Plaats je oproepje of reageer op een oproep via Oproepjes Nederland.',
-                'image' => 'https://oproepjesnederland.nl/img/nederland/drenthe.png'
+                'image' => $baseUrl . '/img/nederland/drenthe.png'
             ],
             'dating-flevoland' => [
                 'title' => 'Dating in Flevoland - Ontmoet singles via Oproepjes Nederland',
                 'description' => 'Vind singles in Flevoland en plaats je datingoproep eenvoudig op Oproepjes Nederland.',
-                'image' => 'https://oproepjesnederland.nl/img/nederland/flevoland.png'
+                'image' => $baseUrl . '/img/nederland/flevoland.png'
             ],
             'dating-friesland' => [
                 'title' => 'Dating in Friesland - Vind je match via Oproepjes Nederland',
                 'description' => 'Zoek of plaats een datingoproep in Friesland op Oproepjes Nederland. Dé plek voor contact en nieuwe ontmoetingen.',
-                'image' => 'https://oproepjesnederland.nl/img/nederland/friesland.png'
+                'image' => $baseUrl . '/img/nederland/friesland.png'
             ],
             'dating-gelderland' => [
                 'title' => 'Dating in Gelderland - Oproepjes Nederland voor singles',
                 'description' => 'Ontmoet nieuwe mensen in Gelderland. Plaats eenvoudig je datingoproep op Oproepjes Nederland.',
-                'image' => 'https://oproepjesnederland.nl/img/nederland/gelderland.png'
+                'image' => $baseUrl . '/img/nederland/gelderland.png'
             ],
             'dating-groningen' => [
                 'title' => 'Dating in Groningen - Vind je match op Oproepjes Nederland',
                 'description' => 'Zoek of plaats een datingoproep in Groningen via Oproepjes Nederland. Eenvoudig, snel en gratis.',
-                'image' => 'https://oproepjesnederland.nl/img/nederland/groningen.png'
+                'image' => $baseUrl . '/img/nederland/groningen.png'
             ],
             'dating-limburg' => [
                 'title' => 'Dating in Limburg - Ontmoet singles via Oproepjes Nederland',
                 'description' => 'Op zoek naar een date in Limburg? Plaats of bekijk oproepjes via Oproepjes Nederland.',
-                'image' => 'https://oproepjesnederland.nl/img/nederland/limburg.png'
+                'image' => $baseUrl . '/img/nederland/limburg.png'
             ],
             'dating-noord-brabant' => [
                 'title' => 'Dating in Noord-Brabant - Vind jouw match via Oproepjes Nederland',
                 'description' => 'Zoek of plaats een datingoproep in Noord-Brabant via Oproepjes Nederland. Ontmoet singles bij jou in de buurt.',
-                'image' => 'https://oproepjesnederland.nl/img/nederland/noordbrabant.png'
+                'image' => $baseUrl . '/img/nederland/noordbrabant.png'
             ],
             'dating-noord-holland' => [
                 'title' => 'Dating in Noord-Holland - Ontmoet singles via Oproepjes Nederland',
                 'description' => 'Vind singles in Noord-Holland en plaats je datingoproep eenvoudig op Oproepjes Nederland.',
-                'image' => 'https://oproepjesnederland.nl/img/nederland/noordholland.png'
+                'image' => $baseUrl . '/img/nederland/noordholland.png'
             ],
             'dating-overijssel' => [
                 'title' => 'Dating in Overijssel - Vind je match via Oproepjes Nederland',
                 'description' => 'Ontmoet nieuwe mensen in Overijssel. Plaats je oproepje op Oproepjes Nederland en vind je date.',
-                'image' => 'https://oproepjesnederland.nl/img/nederland/overijssel.png'
+                'image' => $baseUrl . '/img/nederland/overijssel.png'
             ],
             'dating-utrecht' => [
                 'title' => 'Dating in Utrecht - Plaats of zoek oproepjes op Oproepjes Nederland',
                 'description' => 'Zoek of plaats een datingoproep in Utrecht via Oproepjes Nederland. Vind jouw match eenvoudig.',
-                'image' => 'https://oproepjesnederland.nl/img/nederland/utrecht.png'
+                'image' => $baseUrl . '/img/nederland/utrecht.png'
             ],
             'dating-zeeland' => [
                 'title' => 'Dating in Zeeland - Vind je date via Oproepjes Nederland',
                 'description' => 'Ontmoet singles in Zeeland. Plaats of bekijk datingoproepjes via Oproepjes Nederland.',
-                'image' => 'https://oproepjesnederland.nl/img/nederland/zeeland.png'
+                'image' => $baseUrl . '/img/nederland/zeeland.png'
             ],
             'dating-zuid-holland' => [
                 'title' => 'Dating in Zuid-Holland - Vind je match via Oproepjes Nederland',
                 'description' => 'Zoek of plaats een datingoproep in Zuid-Holland via Oproepjes Nederland en ontmoet nieuwe mensen.',
-                'image' => 'https://oproepjesnederland.nl/img/nederland/zuidholland.png'
+                'image' => $baseUrl . '/img/nederland/zuidholland.png'
             ],
         ];
 
