@@ -33,18 +33,19 @@
         } else {
                 echo '<script src="js/oproepjes.js?04"></script>';
         }
-        echo '<script src="js/cookie-consent.js"></script>';
+echo '<script src="js/cookie-consent.js"></script>';
 ?>
 
-<div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; right: 0; background: #fff; border-top: 1px solid #ccc; padding: 15px; font-family: Arial, sans-serif; display: none; z-index: 9999;">
-  <div style="max-width: 960px; margin: auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;">
-    <div style="flex: 1; min-width: 200px; font-size: 14px; color: #333;">
-      We use cookies to enhance your experience. Read our <a href="/cookie-policy.html" target="_blank">Cookie Policy</a>.
-    </div>
-    <div style="flex-shrink: 0; margin-left: 10px;">
-      <button onclick="acceptCookies()" style="background-color: #007BFF; color: white; padding: 8px 12px; border: none; cursor: pointer; margin-right: 5px;">Accept</button>
-      <button onclick="declineCookies()" style="background-color: #ccc; color: #333; padding: 8px 12px; border: none; cursor: pointer;">Decline</button>
-    </div>
+<div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; right: 0; background: #fff; border-top: 1px solid #ccc; font-family: Arial, sans-serif; padding: 20px; z-index: 10000; display: none;">
+  <div style="max-width: 960px; margin: auto;">
+    <p style="margin-bottom: 10px;">We use cookies to personalize content and ads, to provide social media features and to analyze our traffic. For more details, see our <a href="/cookie-policy.html" target="_blank">Cookie Policy</a>.</p>
+    <form id="cookie-form">
+      <label><input type="checkbox" disabled checked> Necessary (required)</label><br>
+      <label><input type="checkbox" id="cookie-statistics"> Statistics (e.g. Google Analytics)</label><br>
+      <label><input type="checkbox" id="cookie-marketing"> Marketing (e.g. Google Ads, Meta Pixel)</label><br><br>
+      <button type="submit" style="background-color: #007BFF; color: white; border: none; padding: 10px 15px; margin-right: 10px; cursor: pointer;">Save preferences</button>
+      <button type="button" onclick="acceptAllCookies()" style="background-color: #28a745; color: white; border: none; padding: 10px 15px; cursor: pointer;">Accept all</button>
+    </form>
   </div>
 </div>
 
