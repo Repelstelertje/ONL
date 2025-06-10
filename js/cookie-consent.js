@@ -72,4 +72,8 @@ function acceptAllCookies() {
   loadMarketing();
 }
 
-window.onload = initializeCookies;
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initializeCookies);
+} else {
+  initializeCookies();
+}
