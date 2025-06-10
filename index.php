@@ -39,7 +39,7 @@
             </div>
         </div>
 
-        <script nonce="2726c7f26c">
+        <script nonce="<?php echo $nonce; ?>">
             var api_url= "https://16hl07csd16.nl/profile/banner/120";
         </script>
         <!-- Pagination -->

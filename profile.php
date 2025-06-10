@@ -29,7 +29,7 @@
     <div id="footer-banner"></div>
 </div><!-- Container -->
 
-<script nonce="2726c7f26c">    
+<script nonce="<?php echo $nonce; ?>">    
     var api_url= "https://16hl07csd16.nl/profile/get0/8/";
     var ref_id= "32"; //de ref_id vd landingwebsite
 </script>
