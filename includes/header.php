@@ -178,6 +178,7 @@ $nonce = base64_encode(random_bytes(16));
     <meta name="twitter:image" content="<?php echo $og_image; ?>">
     <meta name="twitter:url" content="<?php echo $og_url; ?>">
 
+    <?php if (isset($_COOKIE['cookieBar'])): ?>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-5M538168N4" nonce="<?php echo $nonce; ?>"></script>
     <script nonce="<?php echo $nonce; ?>">
@@ -187,6 +188,7 @@ $nonce = base64_encode(random_bytes(16));
 
         gtag('config', 'G-5M538168N4');
     </script>
+    <?php endif; ?>
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <!-- Custom styles for this template -->

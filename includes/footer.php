@@ -15,6 +15,7 @@
 <script src="js/vendor/vue.2.5.13.min.js"></script>
 <script src="js/vendor/axios.0.17.1.min.js"></script>
 <script src="js/vendor/jquery.min.js"></script>
+<script src="js/vendor/jquery.cookieBar.min.js"></script>
 <script src="js/vendor/bootstrap.bundle.min.js"></script>
 <script src="https://unpkg.com/vue-router@3.5.3"></script>
 <script type="text/javascript" nonce="<?php echo $nonce; ?>">
@@ -32,6 +33,7 @@
         } else {
                 echo '<script src="js/oproepjes.js?04"></script>';
         }
+        echo '<script src="js/cookie-consent.js"></script>';
 ?>
 
 </body>
