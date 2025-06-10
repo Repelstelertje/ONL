@@ -35,6 +35,5 @@ Running this command installs front-end packages so you can rebuild the `vendor`
    Browse to `http://localhost:8000` (or the port you configured) while `gulp watch` is running.
 
 4. Cookie consent banner:
-
-   A small script (`js/cookie-consent.js`) shows a banner asking users to accept or decline cookies. When accepted, the script stores the choice in `localStorage` and loads Google Analytics. If no choice has been made, the banner is displayed on page load.
+   The site uses a small script (`js/cookie-consent.js`) that initializes the CookieBar plugin. A banner will ask visitors to accept or decline tracking cookies. Google Analytics is only loaded when the consent cookie (`cookieBar`) is present.
 
