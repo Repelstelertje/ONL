@@ -24,11 +24,23 @@ var oproepjes= new Vue({
         init: function(){
             axios.get(api_url)
                 .then(function(response){
-                    oproepjes.profiles= response.data.profiles;
+                    var profs = response.data.profiles;
+                    profs.forEach(function(p){
+                        if(p.src && p.src.indexOf('no_img_Vrouw.jpg') !== -1){
+                            p.src = 'img/fallback.svg';
+                        }
+                        if(p.profile_image_big && p.profile_image_big.indexOf('no_img_Vrouw.jpg') !== -1){
+                            p.profile_image_big = 'img/fallback.svg';
+                        }
+                    });
+                    oproepjes.profiles = profs;
                 })
                 .catch(function (error) {
                     console.log(error);
-                });            
+                });
+        },
+        imgError: function(event){
+            event.target.src = 'img/fallback.svg';
         },
         imgError: function(event){
             event.target.src = 'img/fallback.svg';
