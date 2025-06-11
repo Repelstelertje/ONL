@@ -3,11 +3,7 @@
 
         include('includes/array_tips.php');
         include('includes/array_prov.php');
-
-	function strip_bad_chars( $input ) {
-		$output = preg_replace( "/[^a-zA-Z0-9_-]/", "",$input);
-		return $output;
-	}
+        include('includes/utils.php');
 	
 $tipData = null;
 if(isset($_GET['tip'])) {
