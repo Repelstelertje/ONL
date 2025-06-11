@@ -36,7 +36,7 @@ var oproepjes= new Vue({
                     oproepjes.profiles = profs;
                 })
                 .catch(function (error) {
-                    console.log(error);
+                    // console.log(error); // removed debugging statement
                 });
         },
         imgError: function(event){
