@@ -6,7 +6,7 @@ include('includes/header.php');
         <h1>Privacybeleid – OproepjesNederland.nl</h1>
         <p>Bij OproepjesNederland.nl hechten we veel waarde aan jouw privacy. In dit beleid leggen we uit welke persoonsgegevens we verzamelen, waarom we dat doen, en wat jouw rechten zijn.</p>
         <h2>1. Wie zijn wij?</h2>
-        <p>OproepjesNederland.nl is onderdeel van [bedrijfsnaam invullen, indien van toepassing], gevestigd in Nederland. Voor vragen over dit beleid kun je contact opnemen via <a href="mailto:info@oproepjesnederland.nl">info@oproepjesnederland.nl</a>.</p>
+        <p>OproepjesNederland.nl is gevestigd in Nederland. Voor vragen over dit beleid kun je contact opnemen via <a href="mailto:info@oproepjesnederland.nl">info@oproepjesnederland.nl</a>.</p>
         <h2>2. Welke gegevens verzamelen wij?</h2>
         <p>Wij verzamelen alleen persoonsgegevens die jij zelf aan ons verstrekt of die automatisch worden gegenereerd bij het gebruik van de website. Dit betreft onder andere:</p>
         <ul>
