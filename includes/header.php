@@ -1,7 +1,7 @@
 <?php
   $companyName = "Oproepjes Nederland";
   include('includes/nav_items.php');
-  include('includes/config.php');
+  $config = include('includes/config.php');
 
   // Enable verbose error reporting only when APP_DEBUG=true
   if (!empty($config['DEBUG'])) {
