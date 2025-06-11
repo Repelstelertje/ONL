@@ -13,7 +13,7 @@ var profiel= new Vue({
         }
         
         
-        console.log(this.profile_id);
+        // console.log(this.profile_id); // removed debugging statement
     },
     data: {
         profile_id: 0,
@@ -47,7 +47,7 @@ var profiel= new Vue({
                     }
                 })
                 .catch(function (error) {
-                    console.log(error);
+                    // console.log(error); // removed debugging statement
                 });
         },
     }
