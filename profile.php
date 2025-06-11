@@ -5,7 +5,7 @@
 <div class="container" id="profiel" v-cloak>
     <div id="top-banner"></div>
     <div class="jumbotron my-4">
-        <h1 class="text-center">Daten in {{ profile.province }} met {{ profile.name }}</h1>
+        <h1 class="text-center">Daten met {{ profile.name }} uit {{ profile.city }}</h1>
         <hr>
         <div class="row">
             <div class="col-sm-4 text-center">
@@ -29,8 +29,8 @@
     <div id="footer-banner"></div>
 </div><!-- Container -->
 
-<script nonce="<?php echo $nonce; ?>">    
-    var api_url= "https://16hl07csd16.nl/profile/get0/8/";
+<script>    
+    var api_url= "<?php echo $config['PROFILE_ENDPOINT']; ?>";
     var ref_id= "32"; //de ref_id vd landingwebsite
 </script>
 <?php 

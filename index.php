@@ -1,12 +1,20 @@
 <?php
-  include('includes/array_prov.php');
-  include('includes/array_tips.php');
-  include('includes/header.php');
+    $config = include('includes/config.php');
+    if (!empty($config['DEBUG'])) {
+        ini_set('display_errors', 1);
+        ini_set('display_startup_errors', 1);
+        error_reporting(E_ALL);
+    }
+    define("TITLE", "De beste datingsite van Nederland");
+
+    include("includes/array_prov.php");
+    include("includes/array_tips.php");
+    include("includes/header.php");
 ?>
 <div class="container">
     <!-- Jumbotron Header -->
     <div class="jumbotron my-4 text-center">
-        <h1>Oproepjes Nederland | De gratis datingsite van Nederland</h1>
+        <h1>Oproepjes Nederland | De beste datingsite van Nederland</h1>
   		<hr>
         <p>Op deze gratis datingsite vind je alle single dames van Nederland die op zoek zijn naar een leuke date. Zoek in jouw provincie tussen alle contactadvertenties van Nederland naar een single bij jou in de omgeving. Oproepjes Nederland houdt rekening met de voorkeuren van alle leden. De website heeft een actief ledenbestand per provincie! Voor een eerste afspraakje willen de meesten niet het hele land doorreizen, maar dat mag natuurlijk wel.  Gratis dating begint bij Oproepjes Nederland.</p>    
         <h2>Zoek hier vrouwen bij jou in buurt!</h2>
@@ -38,9 +46,8 @@
                 <a :href="'daten-met-' + slugify(profile.name) + '?id=' + profile.id" class="card-footer btn btn-primary">Bekijk profiel</a>
             </div>
         </div>
-
-        <script nonce="<?php echo $nonce; ?>">
-            var api_url= "https://16hl07csd16.nl/profile/banner/120";
+        <script>
+            var api_url= "<?php echo $config['BANNER_ENDPOINT']; ?>";
         </script>
         <!-- Pagination -->
         <nav class="nav-pag" aria-label="Page navigation">
@@ -116,6 +123,4 @@
         </div>
     </div>
 </div><!-- container -->
-<?php
-  	include('includes/footer.php');
-?>
+<?php include('includes/footer.php'); ?>

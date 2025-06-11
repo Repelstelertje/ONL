@@ -1,12 +1,13 @@
 <?php
-include('includes/header.php');
+    define('TITLE', 'Privacybeleid');
+    include('includes/header.php');
 ?>
 <div class="container">
     <div class="jumbotron my-4">
-        <h1>Privacybeleid – OproepjesNederland.nl</h1>
+        <h1>Privacybeleid – Oproepjesnederland.nl</h1>
         <p>Bij OproepjesNederland.nl hechten we veel waarde aan jouw privacy. In dit beleid leggen we uit welke persoonsgegevens we verzamelen, waarom we dat doen, en wat jouw rechten zijn.</p>
         <h2>1. Wie zijn wij?</h2>
-        <p>OproepjesNederland.nl is gevestigd in Nederland. Voor vragen over dit beleid kun je contact opnemen via <a href="mailto:info@oproepjesnederland.nl">info@oproepjesnederland.nl</a>.</p>
+        <p>Oproepjesnederland.nl is gevestigd in Nederland. Voor vragen over dit beleid kun je contact opnemen via <a href="mailto:info@oproepjesnederland.nl">info@oproepjesnederland.nl</a>.</p>
         <h2>2. Welke gegevens verzamelen wij?</h2>
         <p>Wij verzamelen alleen persoonsgegevens die jij zelf aan ons verstrekt of die automatisch worden gegenereerd bij het gebruik van de website. Dit betreft onder andere:</p>
         <ul>
@@ -47,9 +48,7 @@ include('includes/header.php');
         <p>We behouden ons het recht voor dit privacybeleid aan te passen. We raden aan om dit beleid regelmatig te raadplegen. Bij ingrijpende wijzigingen stellen we je daarvan op de hoogte via de website.</p>
         <h2>9. Contact</h2>
         <p>Heb je vragen over dit privacybeleid of wil je een beroep doen op je rechten? Stuur dan een e-mail naar <a href="mailto:info@oproepjesnederland.nl">info@oproepjesnederland.nl</a>.</p>
-        <p><em>Laatst bijgewerkt: juni 2025</em></p>
+        <p>Laatst bijgewerkt: juni 2025</p>
     </div>
 </div>
-<?php
-include('includes/footer.php');
-?>
+<?php include('includes/footer.php'); ?>

@@ -10,7 +10,7 @@
     <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle drpdwn" href="#" id="navbarDropdownTips" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Datingtips</a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownTips">
-            <?php foreach ($navItems2 as $item2) {echo "<a class=\"dropdown-item\" href=\"$item2[slug]\">$item2[title]</a>"; } ?>
+            <?php foreach ($navItems2 as $item2) {echo "<a class=\"dropdown-item\" href=\"$item2[slug]\">$item2[title]</a>";} ?>
         </div>
     </li>
     <!-- Nieuwe sociale media links -->

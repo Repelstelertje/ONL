@@ -3,37 +3,21 @@
   include('includes/nav_items.php');
   include('includes/config.php');
 
-  // Enable verbose error output only when running in development
-  if (getenv('ONL_ENV') === 'development') {
+  // Enable verbose error reporting only when APP_DEBUG=true
+  if (!empty($config['DEBUG'])) {
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
   }
-
-  if (empty($page_title)) {
-    $page_title = 'Contact Advertenties';
-  }
-$nonce = base64_encode(random_bytes(16));
 ?>
-
 <!DOCTYPE html>
 <html lang="nl-NL">
 <head>
-    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Gratis datingsite - Ben jij op zoek naar een leuke gratis date? Hier vind je meer dan duizend singles die willen daten. Aanmelding is helemaal gratis.">
     <meta name="author" content="Oproepjes Nederland">
     <link rel="apple-touch-icon" sizes="57x57" href="img/fav/apple-icon-57x57.png">
-<meta http-equiv="Content-Security-Policy" content="
-        default-src 'self' https://16hl07csd16.nl https://oproepjesnederland.nl;
-        font-src 'self' https://fonts.gstatic.com;
-        img-src 'self' https://16hl07csd16.nl https://oproepjesnederland.nl https://region1.google-analytics.com www.googletagmanager.com https://ssl.gstatic.com https://www.gstatic.com https://www.google-analytics.com https://20fhbe2020.be;
-        style-src 'self' https://16hl07csd16.nl https://oproepjesnederland.nl https://tagmanager.google.com https://fonts.googleapis.com 'unsafe-inline';
-        style-src-elem 'self' https://tagmanager.google.com https://fonts.googleapis.com 'unsafe-inline';
-        connect-src 'self' https://region1.google-analytics.com https://tagmanager.google.com https://www.googletagmanager.com https://www.google-analytics.com https://www.google.com https://16hl07csd16.nl https://oproepjesnederland.nl https://20fhbe2020.be;
-        frame-src 'self' https://www.googletagmanager.com;
-        script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https://unpkg.com/ 'nonce-<?php echo $nonce; ?>' 'sha256-WwSlXI54tpz3oRisOne8KKEqXFjbTYCI2AzKef7+7nE=' 'unsafe-eval'
-    " >
     <link rel="apple-touch-icon" sizes="60x60" href="img/fav/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="img/fav/apple-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="76x76" href="img/fav/apple-icon-76x76.png">
@@ -46,66 +30,59 @@ $nonce = base64_encode(random_bytes(16));
     <link rel="icon" type="image/png" sizes="32x32" href="img/fav/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="img/fav/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="img/fav/favicon-16x16.png">
+    <link rel="manifest" href="img/fav/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="img/fav/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
-
     <?php
         // Canonical URL logic
+        $baseUrl = "https://oproepjesnederland.nl";
         $canonicalUrl = $baseUrl; // Default canonical URL
-        $title = "Dating Advertenties Nederland"; // Default title
-
-        if (isset($_GET['item']) && !empty($_GET['item'])) {
-            $item = htmlspecialchars($_GET['item']);
-            $canonicalUrl = $baseUrl . "/dating-" . $item;
-            $title = "Dating " . $item;
-        } else if (isset($_GET['id']) && !empty($_GET['id'])) {
-            $id = htmlspecialchars($_GET['id']);
-
-            $profileData = @file_get_contents("https://16hl07csd16.nl/profile/get0/8/" . $id);
-            if ($profileData !== false) {
-                $json = json_decode($profileData, true);
-                if (isset($json['profile']['name'])) {
-                    $profileName = $json['profile']['name'];
-                    $slug = strtolower(preg_replace('/[^a-z0-9]+/i', '-', $profileName));
+        $title = "Oproepjes Nederland"; // Default title
+        if (isset($_GET['item'])) {
+            $canonicalUrl = $baseUrl . "/dating-" . htmlspecialchars($_GET['item']);
+            $title = "Dating " . htmlspecialchars($_GET['item']);
+        } else if (isset($_GET['id'])) {
+            $id = preg_replace('/[^0-9]/', '', $_GET['id']);
+            $apiResponse = @file_get_contents("https://16hl07csd16.nl/profile/get0/8/" . $id);
+            if ($apiResponse !== false) {
+                $data = json_decode($apiResponse, true);
+                if (isset($data['profile']['name'])) {
+                    $profileName = $data['profile']['name'];
+                    $slug = strtolower($profileName);
+                    $slug = preg_replace('/\s+/', '-', $slug);
+                    $slug = preg_replace('/[^a-z0-9-]/', '', $slug);
                     $slug = trim($slug, '-');
-                    $canonicalUrl = $baseUrl . "/daten-met-" . $slug;
-                    $title = "Daten met " . $profileName;
+                    $canonicalUrl = $baseUrl . '/daten-met-' . $slug;
+                    $title = 'Daten met ' . htmlspecialchars($profileName);
                 } else {
-                    $canonicalUrl = $baseUrl . "/profile?id=" . $id;
-                    $title = "Daten met " . $id;
+                    $canonicalUrl = $baseUrl . "/profile?id=" . htmlspecialchars($_GET['id']);
+                    $title = "Daten met " . htmlspecialchars($_GET['id']);
                 }
             } else {
-                $canonicalUrl = $baseUrl . "/profile?id=" . $id;
-                $title = "Daten met " . $id;
+                $canonicalUrl = $baseUrl . "/profile?id=" . htmlspecialchars($_GET['id']);
+                $title = "Daten met " . htmlspecialchars($_GET['id']);
             }
-        } else if (isset($_GET['tip']) && !empty($_GET['tip'])) {
-            $tip = htmlspecialchars($_GET['tip']);
-            $canonicalUrl = $baseUrl . "/datingtips-" . $tip;
-            $title = "Datingtips " . $tip;
+        } else if (isset($_GET['tip'])) {
+            $canonicalUrl = $baseUrl . "/datingtips-" . htmlspecialchars($_GET['tip']);
+            $title = "Datingtips " . htmlspecialchars($_GET['tip']);
         }
-
         echo '<link rel="canonical" href="' . $canonicalUrl . '" >';
         echo '<title>' . $title . '</title>';
     ?>
-
     <?php
         // Stel standaardwaarden in
         $default_title = "Oproepjes Nederland - Dé plek voor oproepjes in Nederland";
         $default_description = "Vind en plaats oproepjes in heel Nederland. Eenvoudig platform om jouw oproepje snel en gemakkelijk te delen.";
         $default_image = $baseUrl . "/img/bg.jpg";
         $default_url = $baseUrl;
-
         // Dynamisch genereren van inhoud gebaseerd op de pagina-URL
         $current_url = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-
-        // Standaardwaarden instellen
+        // Mapping van URL-sleutels naar Open Graph gegevens
         $og_title = $default_title;
         $og_description = $default_description;
         $og_image = $default_image;
         $og_url = $default_url;
-
-        // Koppeling tussen slug en Open Graph data
         $og_pages = [
             'dating-drenthe' => [
                 'title' => 'Dating in Drenthe - Vind je date op Oproepjes Nederland',
@@ -168,7 +145,6 @@ $nonce = base64_encode(random_bytes(16));
                 'image' => $baseUrl . '/img/nederland/zuidholland.png'
             ],
         ];
-
         // Zoek een match in de array
         foreach ($og_pages as $keyword => $data) {
             if (strpos($current_url, $keyword) !== false) {
@@ -196,9 +172,9 @@ $nonce = base64_encode(random_bytes(16));
     <meta name="twitter:url" content="<?php echo $og_url; ?>">
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href="css/style.css" rel="stylesheet">
 </head>
 <body id="top">
     <div id="oproepjes">
