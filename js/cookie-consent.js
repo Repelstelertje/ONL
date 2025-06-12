@@ -15,8 +15,8 @@ function getCookieConsent() {
     return null;
   }
 }
-
 function loadAnalytics() {
+  // Google Analytics
   const script = document.createElement('script');
   script.src = 'https://www.googletagmanager.com/gtag/js?id=G-5M538168N4';
   script.async = true;
@@ -29,6 +29,7 @@ function loadAnalytics() {
 }
 
 function loadMarketing() {
+  // Google Ads Example (conversion tracking)
   const script = document.createElement('script');
   script.src = 'https://www.googletagmanager.com/gtag/js?id=AW-7880643696';
   script.async = true;
@@ -42,7 +43,6 @@ function loadMarketing() {
   // Facebook Pixel (placeholder)
   // Insert your pixel script here if needed
 }
-
 function initializeCookies() {
   const consent = getCookieConsent();
   if (!consent) {
@@ -52,7 +52,6 @@ function initializeCookies() {
     if (consent.marketing) loadMarketing();
   }
 }
-
 function bindCookieForm() {
   const form = document.getElementById('cookie-form');
   if (!form) return;
@@ -71,7 +70,6 @@ function bindCookieForm() {
     acceptAllBtn.addEventListener('click', acceptAllCookies);
   }
 }
-
 function acceptAllCookies() {
   document.getElementById('cookie-statistics').checked = true;
   document.getElementById('cookie-marketing').checked = true;
@@ -80,7 +78,6 @@ function acceptAllCookies() {
   loadAnalytics();
   loadMarketing();
 }
-
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', function() {
     initializeCookies();
