@@ -1,5 +1,5 @@
 <?php
-	include('includes/header.php');
+    include('includes/header.php');
 ?>
 <!-- Page Content -->
 <div class="container" id="profiel" v-cloak>
@@ -29,7 +29,7 @@
     <div id="footer-banner"></div>
 </div><!-- Container -->
 
-<script>    
+<script>  
     var api_url= "<?php echo $config['PROFILE_ENDPOINT']; ?>";
     var ref_id= "32"; //de ref_id vd landingwebsite
 </script>
