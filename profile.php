@@ -22,7 +22,7 @@
                     <li class="list-group-item">Relatiestatus: {{ profile.relationship }}</li>
                     <li class="list-group-item">Lengte: {{ profile.length }}</li>
                 </ul>
-                <a :href="profile.url + '?ref=' + ref_id" class="btn btn-primary mt-1">Stuur gratis bericht</a>
+                <a :href="profile.url + '?ref=' + ref_id" class="btn btn-primary mt-1" id="send-msg-btn">Stuur gratis bericht</a>
             </div>  
         </div><!-- /.row -->
     </div>

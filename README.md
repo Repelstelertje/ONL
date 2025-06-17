@@ -40,3 +40,6 @@ This command watches files, builds the `js/vendor` folder and launches BrowserSy
    The chosen preferences are stored in `localStorage` and analytics or
    marketing scripts are only loaded when allowed.
 
+5. Analytics event tracking:
+   Clicking the "Stuur gratis bericht" button on a profile page triggers a Google Analytics event when statistical cookies are accepted.
+
