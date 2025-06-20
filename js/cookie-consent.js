@@ -5,7 +5,11 @@ function setCookieConsent(statistics, marketing) {
     marketing: marketing,
     timestamp: new Date().toISOString()
   };
-  localStorage.setItem('cookieConsent', JSON.stringify(consent));
+  try {
+    localStorage.setItem('cookieConsent', JSON.stringify(consent));
+  } catch (err) {
+    // If storage fails (e.g. in private mode), continue without persisting
+  }
 }
 
 function getCookieConsent() {
@@ -23,11 +27,10 @@ function loadAnalytics() {
   document.head.appendChild(script);
 
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-5M538168N4');
+  window.gtag = window.gtag || function(){ window.dataLayer.push(arguments); };
+  window.gtag('js', new Date());
+  window.gtag('config', 'G-5M538168N4');
 }
-
 function loadMarketing() {
   // Google Ads Example (conversion tracking)
   const script = document.createElement('script');
@@ -36,9 +39,9 @@ function loadMarketing() {
   document.head.appendChild(script);
 
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'AW-7880643696');
+  window.gtag = window.gtag || function(){ window.dataLayer.push(arguments); };
+  window.gtag('js', new Date());
+  window.gtag('config', 'AW-7880643696');
 
   // Facebook Pixel (placeholder)
   // Insert your pixel script here if needed
