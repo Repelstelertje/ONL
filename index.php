@@ -26,7 +26,7 @@
     </div>
     <div id="top-banner"></div>
     <div class="jumbotron jumbotron-sm text-center">
-        <h2>Niewste leden!</h2>
+        <h2>Nieuwste leden!</h2>
     </div>
     <div class="row" v-cloak>
         <div class="col-lg-3 col-md-6 mb-4 portfolio-item" id="Slankie" v-for="profile in filtered_profiles">
