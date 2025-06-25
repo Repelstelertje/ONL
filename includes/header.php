@@ -96,8 +96,8 @@
         }
     }
     // Always append site name to the title when not already present
-    if (strpos($title, 'Zoekertjes België') === false) {
-        $title .= ' - Zoekertjes België';
+    if (strpos($title, 'Oproepjes Nederland') === false) {
+        $title .= ' - Oproepjes Nederland';
     }
     echo '<link rel="canonical" href="' . $canonicalUrl . '" >';
     echo '<title>' . $title . '</title>';
@@ -106,7 +106,7 @@
     // Stel standaardwaarden in
     $default_title = "Oproepjes Nederland - Dé plek voor oproepjes in Nederland";
     $default_description = "Vind en plaats oproepjes in heel Nederland. Eenvoudig platform om jouw oproepje snel en gemakkelijk te delen.";
-    $default_image = $baseUrl . "/img/bg.jpg";
+    $default_image = $baseUrl . "img/bg.jpg";
     $default_url = $baseUrl;
     // Dynamisch genereren van inhoud gebaseerd op de pagina-URL
     $current_url = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
@@ -222,4 +222,3 @@
             </div>
         </nav>
     <main>
-      

@@ -1,8 +1,8 @@
 <?php
 $base = __DIR__;
 define('TITLE', 'Partnerlinks');
-$canonical = 'https://zoekertjesbelgie.be/partnerlinks';
-$pageTitle = 'Partnerlinks - Zoekertjes België';
+$canonical = 'https://oproepjesnederland.nl/partnerlinks';
+$pageTitle = 'Partnerlinks - Oproepjes Nederland';
 include $base . '/includes/header.php';
 include $base . '/includes/partner_links.php';
 ?>
