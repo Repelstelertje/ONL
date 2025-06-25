@@ -1,15 +1,7 @@
 <?php
-    $config = include('includes/config.php');
-    if (!empty($config['DEBUG'])) {
-        ini_set('display_errors', 1);
-        ini_set('display_startup_errors', 1);
-        error_reporting(E_ALL);
-    }
-    define("TITLE", "De beste datingsite van Nederland");
-
-    include("includes/array_prov.php");
-    include("includes/array_tips.php");
-    include("includes/header.php");
+$base = __DIR__;
+define("TITLE", "Home");
+include $base . '/includes/header.php';
 ?>
 <div class="container">
     <!-- Jumbotron Header -->
@@ -31,7 +23,7 @@
     <div class="row" v-cloak>
         <div class="col-lg-3 col-md-6 mb-4 portfolio-item" id="Slankie" v-for="profile in filtered_profiles">
             <div class="card h-100">
-                <a :href="'daten-met-' + slugify(profile.name) + '?id=' + profile.id"><img class="card-img-top" :src="profile.src.replace('150x150', '300x300')" :alt="profile.name + ' daten in Nederland'" @error="imgError"></a>
+                <a :href="'<?php echo $baseUrl; ?>/daten-met-' + slugify(profile.name) + '?id=' + profile.id"><img class="card-img-top" :src="profile.src.replace('150x150', '300x300')" :alt="profile.name + ' daten in België'" @error="imgError"></a>
                 <div class="card-body">
                     <div class="card-top">
                         <h4 class="card-title">{{ profile.name }}</h4>  
@@ -43,7 +35,7 @@
                         <li class="list-group-item">Provincie: {{ profile.province }}</li>
                     </ul>
                 </div>
-                <a :href="'daten-met-' + slugify(profile.name) + '?id=' + profile.id" class="card-footer btn btn-primary">Bekijk profiel</a>
+                <a :href="'<?php echo $baseUrl; ?>/daten-met-' + slugify(profile.name) + '?id=' + profile.id" class="card-footer btn btn-primary">Bekijk profiel</a>
             </div>
         </div>
         <script>
@@ -54,10 +46,10 @@
             <ul class="pagination flex-wrap justify-content-center">
                 <li class="page-item">
                     <a class="page-link" aria-label="Vorige" v-on:click="set_page_number(page-1)" ><span aria-hidden="true">&laquo;</span><span class="sr-only">Vorige</span></a>
-                </li> 
+                </li>
                 <li v-for="page_number in max_page_number" class="page-item" v-bind:class="{ active: page_number == page }" >
                   <a class="page-link" v-on:click="set_page_number(page_number)">{{ page_number }}</a>
-                </li> 
+                </li>
                 <li class="page-item">
                   <a class="page-link" aria-label="Volgende" v-on:click="set_page_number(page+1)" ><span aria-hidden="true">&raquo;</span><span class="sr-only">Volgende</span></a>
                 </li>
@@ -80,47 +72,44 @@
         <p>Van zoeken naar jouw droompartner of spannende afspraakjes, liefde en geluk ligt om de hoek. Vaak zijn leden verbaasd over hoe dichtbij hun nieuwe liefde eigenlijk woont! En dat ene café of restaurant waar je altijd langskwam, is binnenkort misschien wel de plek voor de eerste echte afspraakjes! En omdat iedereen eigen voorkeuren heeft, is het bij Oproepjes Nederland volledig aan de leden om zelf in vrijheid te bepalen waar en hoe het eerste afspraakje gaat plaatsvinden.</p>
         <p><span>Je bent nooit meer alleen dus begin nu met gratis daten!</span></p>
     </div>
-
     <div class="jumbotron text-center">
         <h2>Datingtips</h2>
-        <?php foreach ($datingtips as $tips => $item) { ?>
+        <?php foreach ($datingtips as $tips => $item) {
+            if (empty($tips)) {
+                continue;
+            }
+        ?>
         <a href="datingtips-<?php echo $tips; ?>" class="btn btn-primary btn-tips"><?php echo $item['name']; ?></a>
         <?php } ?>
     </div>
-    <div id="footer-banner"></div>
-    <div class="jumbotron text-center">
-        <div class="">
-            <a href="https://flirthonk.nl" target="_blank" class="m-0" title="FlirtHonk.nl - Vind Flirts & Contacten in Nederland!">Flirthonk</a> - 
-            <a href="https://localflirt.nl" target="_blank" class="m-0" title="LocalFlirt.nl - Voor Jouw Perfecte Flirts in Nederland!">LocalFlirt</a> -
-            <a href="https://65pluscontact.nl" target="_blank" class="m-0" title="65PlusContact.nl - 65+ Vriendschappen Vinden in Nederland!">65Plus Contact</a> - 
-            <a href="https://lagelandenchat.nl" target="_blank" class="m-0" title="LageLandenChat.nl - Chat met landgenoten in Nederland!">Lage Landen Chat</a> - 
-            <a href="https://oranjechat.nl" target="_blank" class="m-0" title="OranjeChat.nl - Vind Spannende Gesprekken in Nederlander">Oranje Chat</a> - 
-            <a href="https://anoniemecontacten.nl" target="_blank" class="m-0" title="AnoniemeContacten.nl - Discreet Verbinden in Nederland">Anonieme Contacten</a> - 
-            <a href="https://casualflirten.nl" target="_blank" class="m-0" title="CasualFlirten.nl - Ontspannen Flirten in heel Nederland">Casual Flirten</a> - 
-            <a href="https://geheimegesprekken.nl" target="_blank" class="m-0" title="GeheimeGesprekken.nl - Vertrouwelijke Chats in Nederland">Geheime Gesprekken</a>
-        </div>
-        <hr>
-        <div class="">
-            <a href="https://buurtmilfs.nl" target="_blank" class="m-0" title="BuurtMilfs.nl - Vind Milfs in Jouw Buurt voor Contact!">BuurtMilfs</a> - 
-            <a href="https://bd4xxx.nl" target="_blank" class="m-0" title="BD4XXX.nl - Ervaar Spanning en Sensualiteit in Nederland!">BD4XXX</a> - 
-            <a href="https://sletplaats.nl" target="_blank" class="m-0" title="Sletplaats.nl - Contacten en Volwassen Plezier in Nederland!">Sletplaats</a> - 
-            <a href="https://stout-contact.nl" target="_blank" class="m-0" title="Stout-Contact.nl - Stout en Spannend Contact in Nederland!">Stout Contact</a> - 
-            <a href="https://oudevrouwenchat.nl" target="_blank" class="m-0" title="OudeVrouwenChat.nl - Chat met Rijpe Dames in Nederland">Oude Vrouwen Chat</a> - 
-            <a href="https://rijpeomachat.nl" target="_blank" class="m-0" title="RijpeOmaChat.nl - Chat met Ervaren Dames in Nederland">Rijpe Oma Chat</a> - 
-            <a href="https://rijpemilfchat.nl" target="_blank" class="m-0" title="RijpeMilfChat.nl - Chat met Ervaren Milfs in Nederland">Rijpe Milf Chat</a> - 
-            <a href="https://rijpemilfmarkt.nl" target="_blank" class="m-0" title="RijpeMilfMarkt.nl - Markt voor Ervaren Milfs in Nederland">Rijpe Milf Markt</a> - 
-            <a href="https://milfmarkt.nl" target="_blank" class="m-0" title="MilfMarkt.nl - Markt voor Contact met Milfs in Nederland">Milf Markt</a> - 
-            <a href="https://hetebuurvrouwen.nl" target="_blank" class="m-0" title="HeteBuurVrouwen.nl - Contact met Buurvrouwen in Nederland">Hete Buurvrouwen</a> - 
-            <a href="https://slettenchat.nl" target="_blank" class="m-0" title="SlettenChat.nl - Chat met Geile Sletten in Nederland">Sletten Chat</a> - 
-            <a href="https://kinkycontacten.nl" target="_blank" class="m-0" title="KinkyContacten.nl - Ontdek Kinky contacten in Nederland">Kinky Contacten</a>    
-        </div>  
-        <hr>
-        <div class="">
-            <a href="https://transgrinder.nl" target="_blank" class="m-0" title="TransGrinder.nl - Verbind met Trans Contacten in Nederland!">Transgrinder</a> - 
-            <a href="https://shemalezoekt.com" target="_blank" class="m-0" title="ShemaleZoekt.com - Shemales Zoeken Contact in Nederland!">Shemale Zoekt</a> - 
-            <a href="https://trannymarkt.com" target="_blank" class="m-0" title="TrannyMarkt.com - Markt voor Shemale Contacten in Nederland!">Tranny Markt</a> - 
-            <a href="https://shemalecontacten.com" target="_blank" class="m-0" title="ShemaleContacten.com - Shemale Contact Vinden in Nederland!">Shemale Contacten</a>
-        </div>
-    </div>
+<div id="footer-banner"></div>
+<div class="jumbotron text-center">
+    <a href="https://flirthonk.nl" target="_blank" class="m-0" title="FlirtHonk.nl - Vind Flirts & Contacten in Nederland!">Flirthonk</a> - 
+    <a href="https://localflirt.nl" target="_blank" class="m-0" title="LocalFlirt.nl - Voor Jouw Perfecte Flirts in Nederland!">LocalFlirt</a> -
+    <a href="https://65pluscontact.nl" target="_blank" class="m-0" title="65PlusContact.nl - 65+ Vriendschappen Vinden in Nederland!">65Plus Contact</a> - 
+    <a href="https://lagelandenchat.nl" target="_blank" class="m-0" title="LageLandenChat.nl - Chat met landgenoten in Nederland!">Lage Landen Chat</a> - 
+    <a href="https://oranjechat.nl" target="_blank" class="m-0" title="OranjeChat.nl - Vind Spannende Gesprekken in Nederlander">Oranje Chat</a> - 
+    <a href="https://anoniemecontacten.nl" target="_blank" class="m-0" title="AnoniemeContacten.nl - Discreet Verbinden in Nederland">Anonieme Contacten</a> - 
+    <a href="https://casualflirten.nl" target="_blank" class="m-0" title="CasualFlirten.nl - Ontspannen Flirten in heel Nederland">Casual Flirten</a> - 
+    <a href="https://geheimegesprekken.nl" target="_blank" class="m-0" title="GeheimeGesprekken.nl - Vertrouwelijke Chats in Nederland">Geheime Gesprekken</a>
+    <hr>
+    <a href="https://buurtmilfs.nl" target="_blank" class="m-0" title="BuurtMilfs.nl - Vind Milfs in Jouw Buurt voor Contact!">BuurtMilfs</a> - 
+    <a href="https://bd4xxx.nl" target="_blank" class="m-0" title="BD4XXX.nl - Ervaar Spanning en Sensualiteit in Nederland!">BD4XXX</a> - 
+    <a href="https://sletplaats.nl" target="_blank" class="m-0" title="Sletplaats.nl - Contacten en Volwassen Plezier in Nederland!">Sletplaats</a> - 
+    <a href="https://stout-contact.nl" target="_blank" class="m-0" title="Stout-Contact.nl - Stout en Spannend Contact in Nederland!">Stout Contact</a> - 
+    <a href="https://oudevrouwenchat.nl" target="_blank" class="m-0" title="OudeVrouwenChat.nl - Chat met Rijpe Dames in Nederland">Oude Vrouwen Chat</a> - 
+    <a href="https://rijpeomachat.nl" target="_blank" class="m-0" title="RijpeOmaChat.nl - Chat met Ervaren Dames in Nederland">Rijpe Oma Chat</a> - 
+    <a href="https://rijpemilfchat.nl" target="_blank" class="m-0" title="RijpeMilfChat.nl - Chat met Ervaren Milfs in Nederland">Rijpe Milf Chat</a> - 
+    <a href="https://rijpemilfmarkt.nl" target="_blank" class="m-0" title="RijpeMilfMarkt.nl - Markt voor Ervaren Milfs in Nederland">Rijpe Milf Markt</a> - 
+    <a href="https://milfmarkt.nl" target="_blank" class="m-0" title="MilfMarkt.nl - Markt voor Contact met Milfs in Nederland">Milf Markt</a> - 
+    <a href="https://hetebuurvrouwen.nl" target="_blank" class="m-0" title="HeteBuurVrouwen.nl - Contact met Buurvrouwen in Nederland">Hete Buurvrouwen</a> - 
+    <a href="https://slettenchat.nl" target="_blank" class="m-0" title="SlettenChat.nl - Chat met Geile Sletten in Nederland">Sletten Chat</a> - 
+    <a href="https://kinkycontacten.nl" target="_blank" class="m-0" title="KinkyContacten.nl - Ontdek Kinky contacten in Nederland">Kinky Contacten</a>     
+    <hr>
+    <a href="https://transgrinder.nl" target="_blank" class="m-0" title="TransGrinder.nl - Verbind met Trans Contacten in Nederland!">Transgrinder</a> - 
+    <a href="https://shemalezoekt.com" target="_blank" class="m-0" title="ShemaleZoekt.com - Shemales Zoeken Contact in Nederland!">Shemale Zoekt</a> - 
+    <a href="https://trannymarkt.com" target="_blank" class="m-0" title="TrannyMarkt.com - Markt voor Shemale Contacten in Nederland!">Tranny Markt</a> - 
+    <a href="https://shemalecontacten.com" target="_blank" class="m-0" title="ShemaleContacten.com - Shemale Contact Vinden in Nederland!">Shemale Contacten</a>
+</div>
 </div><!-- container -->
-<?php include('includes/footer.php'); ?>
+<?php include $base . '/includes/footer.php'; ?>

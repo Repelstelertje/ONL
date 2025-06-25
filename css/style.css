@@ -3,9 +3,12 @@
  * Copyright 2013-2019 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-heroic-features/blob/master/LICENSE)
  */
-
 [v-cloak] {
   display: none;
+}
+html {
+  /* Offset scrolling to account for fixed header */
+  scroll-padding-top: 56px;
 }
 body {
   padding-top: 56px;
@@ -14,7 +17,9 @@ body {
   padding-bottom: 78px;
   min-height: 100vh;
 }
-label {display: inline;}
+main {
+  margin: 40px 0;
+}
 a {
 	color: #0099FF;
 	text-decoration: none !important;
@@ -25,18 +30,8 @@ a:hover {
 hr {
 	margin: 0.5rem 0;
 }
-span {
-    font-weight: 600;
-}
 .card {
 	border: 1px solid #eee;
-}
-.card-title {
-    flex-shrink: 1;
-    min-width: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 .card-title {
     flex-shrink: 1;
@@ -50,6 +45,9 @@ span {
 	border: none !important;
 	padding: .0rem 0rem;
 }
+.list-group-item:before {
+    font-weight: bold;
+}
 @media only screen and (max-width: 600px) {
   h1, h2 {
     font-size: 1.5rem;
@@ -58,6 +56,12 @@ span {
   	font-size: 1rem;
   	padding-bottom: 230px;
   }
+}
+.navbar-brand {
+	font-weight: bold;
+}
+.nav-link img {
+    max-width: 25px
 }
 .logo {
 	max-height: 30px;
@@ -104,6 +108,11 @@ span {
 	padding: 0.25rem;
 	background-color: rgba(255, 255, 255, 0.8);
 }
+.jumbotron[id^="land-"],
+.country-section {
+        /* Prevent fixed header from covering anchors */
+        scroll-margin-top: 56px;
+}
 .align-center {
 	display: block;
 	margin: 0px auto;
@@ -128,9 +137,8 @@ span {
 .btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
 	background-color: #00CCFF;
 }
-.btn-tips {
-    margin: 2px;
-    padding: 10px;
+.button-area {
+	display: inline-flex;
 }
 .online {
 	background-color: #000;
@@ -158,11 +166,20 @@ span {
 .portfolio-item {
 	margin: 10px 0px;
 }
+/* Center all pagination elements */
+.pagination {
+    justify-content: center;
+}
+/* Ensure the pagination nav stretches across the row */
+.nav-pag {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
 .page-item.active .page-link {
 	background-color: #0099FF;
     border-color: #00CCFF;
 }
-
 .page-item.active .page-link:hover {
 	background-color: #00CCFF;
     border-color: #0099FF;
@@ -173,7 +190,7 @@ span {
 	min-height: 480px;
 }
 .profile-pic {
-	max-width: 100%;
+	max-width: 300px;
 	border-radius: 5px;
 	width: 100%;
 }
@@ -221,5 +238,9 @@ footer {
 }
 /* Social */
 .addthis_inline_follow_toolbox {
-    margin-top: -10px;
+    margin-top: -5px;
+}
+/* Alert shown when profile data fails to load */
+.alert.data-error {
+    text-align: center;
 }

@@ -3,21 +3,47 @@ var router = new VueRouter({
     routes: []
 });
 
+function getQueryParam(name){
+    var params = new URLSearchParams(window.location.search);
+    return params.get(name);
+}
+
+function slugify(str){
+    return str.toString().toLowerCase()
+        .replace(/\s+/g,'-')
+        .replace(/[^\w-]+/g,'')
+        .replace(/--+/g,'-')
+        .replace(/^-+/, '')
+        .replace(/-+$/, '');
+}
+
+function getSlugFromPath(){
+    var match = window.location.pathname.match(/^\/date-([^\/]+)$/);
+    return match ? match[1] : null;
+}
+
 var profiel= new Vue({
     router,
     el: "#profiel",
     created: function(){
-        if(1*this.$route.query.id > 0){
-            this.profile_id= 1*this.$route.query.id;
+        var id = this.$route && this.$route.query ? this.$route.query.id : null;
+        if(!id){
+            id = getQueryParam('id');
+        }
+        var slug = typeof profile_slug !== 'undefined' && profile_slug ? profile_slug : getSlugFromPath();
+        if(1*id > 0){
+            this.profile_id = 1*id;
+            this.init();
+        } else if(slug){
+            this.profile_slug = slug;
             this.init();
         }
-        
-        
-        // console.log(this.profile_id); // removed debugging statement
+        console.log(this.profile_id, this.profile_slug);
     },
     data: {
         profile_id: 0,
-        profile: { name : '', 
+        profile_slug: '',
+        profile: { name : '',
                   city : '',
                   profile_image_big : '',
                   aboutme : '',
@@ -31,25 +57,39 @@ var profiel= new Vue({
     computed: {
     },
     methods:  {
-        imgError: function(event){
-            event.target.src = 'img/fallback.svg';
-        },
         init: function(){
-            if(this.profile_id <= 0){
+            if(this.profile_id <= 0 && !this.profile_slug){
                 return;
             }
             let that= this;
-            axios.get(api_url + this.profile_id)
+            var url = api_url + this.profile_id;
+            if(this.profile_slug && this.profile_id <= 0){
+                url = api_url + '?slug=' + encodeURIComponent(this.profile_slug);
+            }
+            axios.get(url)
                 .then(function(response){
                     that.profile = response.data.profile;
-                    if (that.profile.profile_image_big && that.profile.profile_image_big.indexOf('no_img_Vrouw.jpg') !== -1) {
+                    if(that.profile.profile_image_big && that.profile.profile_image_big.indexOf('no_img_Vrouw.jpg') !== -1){
                         that.profile.profile_image_big = 'img/fallback.svg';
+                    }
+                    var slug = slugify(that.profile.name || '');
+                    if(slug){
+                        var newUrl = '/date-' + slug;
+                        var link = document.querySelector('link[rel=canonical]');
+                        if(link){
+                            link.setAttribute('href', 'https://oproepjesnederland.nl' + newUrl);
+                        }
+                        document.title = 'Date ' + that.profile.name;
+                        history.replaceState({}, '', newUrl);
                     }
                 })
                 .catch(function (error) {
-                    // console.log(error); // removed debugging statement
+                    console.log(error);
                 });
         },
+        imgError: function(event){
+            event.target.src = 'img/fallback.svg';
+        }
     }
 });
 
