@@ -191,6 +191,10 @@
             break;
         }
     }
+    // When no match is found, ensure the OG URL follows the canonical URL
+    if ($og_url === $default_url) {
+        $og_url = $canonicalUrl;
+    }
     // Override Open Graph description when a specific meta description is provided
     if (isset($metaDescription) && !empty($metaDescription)) {
         $og_description = htmlspecialchars($metaDescription, ENT_QUOTES, 'UTF-8');
