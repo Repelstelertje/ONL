@@ -99,6 +99,10 @@
     if (strpos($title, 'Oproepjes Nederland') === false) {
         $title .= ' - Oproepjes Nederland';
     }
+    // Allow individual pages to override the canonical URL when provided
+    if (isset($canonical) && filter_var($canonical, FILTER_VALIDATE_URL)) {
+        $canonicalUrl = $canonical;
+    }
     echo '<link rel="canonical" href="' . $canonicalUrl . '" >';
     echo '<title>' . $title . '</title>';
 ?>
